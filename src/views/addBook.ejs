@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/add.css" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/u?firstname=<%=firstname%>&lastname=<%=lastname%>" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+          <%for(i=0;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>?firstname=<%=firstname%>&lastname=<%=lastname%>"><%=nav[i].name%></a>
+        </li>
+         <%}%>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li >
+          <a href="/admin?firstname=<%=firstname%>&lastname=<%=lastname%>"> Add Books and Author</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="masthead">  
+   
+  <div class="container" style="padding-bottom:30px;">
+    <button type="button" class="btn btn-success" style="float:right;margin-left: 84%;" ><a href="/">Log Out</a></button></h5>
+    
+    <div class="row">
+      <div class="col-md-7">
+        <h1><%=title1%>
+          <p class="lead"></p>
+        </h1>
+      </div>
+      <div class="col-md-5" >
+        <div class="well well-sm" style="width:324px"> 
+          <div class="img-container">
+          <img class="img-container"  src="images/addimg.jpg" alt="logo">
+        </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+         <div class="panel-body">
+          
+          
+            <div class="row">    
+                <br>
+                <form action="/admin/add" method="POST" class="addup" onsubmit="return validatex()">
+        
+                  <h2>Add Book</h2>
+                  <h3><%=err%></h3>
+                  <br>
+                  <div class="addup-cont">
+                    <label >Book Name</label>
+                    <br>
+                    <input type="text" name="bookname" placeholder="Enter Book name." required >
+                </div>
+                <br>
+                <div class="addup-cont">
+                  <label >Author Name</label>
+                  <br>
+                  <input type="text" name="authorname" placeholder="Enter the name of the Author." required>
+              </div>
+              <br>
+              <div class="addup-cont">
+                <label >Date of Publication</label>
+                <br>
+                <input type="date" name="pubdate" placeholder="Publication date." id="date"  required>
+                <br>
+                <br>
+              </div>
+            
+                  <div class="addup-cont">
+                    <label >Choose main Genre:</label>
+                    <select name="genre" id="genre" onchange="validate()" >
+                             <option value="invalid" >Select</option>
+                         <%for(i=0;i<genre.length;i++){%>
+                            <option  value="<%=genre[i]%>" ><%=genre[i]%></option>
+                            <%}%>
+                     </select><br>
+                     <label id="genreerror"></label>
+                     <br>
+                  </div>
+                  <div class="addup-cont">
+                    <label >Add Book image:</label>
+                    <br>
+                  <input type="file" name="bookimg" id="input"  onchange="showfiles()" accept="image/*">
+                  <br> 
+                  <img id="preview" hidden src=""  alt="">
+                  <br>
+                  <label >Add Author image:</label>
+                  <br>
+                  <input type="file" name="authimg" id="input1" onchange="showfiles1()" accept="image/*"> 
+                  <br>
+                  <img id="preview1" hidden src=""  alt="">
+                  <br>
+                  </div>
+                  
+                  <div>
+                      <input id="addup-button"  style="margin-left: 3.8%;" type="submit" value="ADD">
+                  </div>
+                  <br>
+                  
+             
+              </form>  
+              </div>
+              <hr>
+              
+          
+          
+        
+          
+          </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+<script src="js/add.js"></script>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

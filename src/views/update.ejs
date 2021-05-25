@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+       <style>/* override bootstrap styles */
+        @import url('https://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext');
+        
+        .navbar-form input, .form-inline input {
+          width:auto;
+        }
+        
+        body {
+          padding-top:50px;
+          color:#646464;
+          background-color:#efefef;
+        }
+        
+        h1,h2,h3,h5,.highlight,.navbar a,#masthead h4 {
+          font-family:'Oswald',arial narrow,sans-serif;
+        }
+        
+        
+        footer {
+        
+          margin-top:40px;
+          padding-top:40px;
+          padding-bottom:40px;
+          background-color:#cecece;
+         
+        }
+       
+    
+        
+       
+        
+        .navbar.affix {
+          position:fixed;
+          top:0;
+          width:100%;
+        }
+        
+        .top-spacer {
+          background:radial-gradient(#111166,#64649c);
+          height:40px;
+        }
+        
+        a,a:hover {
+          color:#223344;
+          text-decoration:none;
+        }
+        
+        .icon-bar {
+          background-color:#fff;
+        }
+        
+        @media screen and (min-width: 768px) {
+          #masthead h1 {
+            font-size: 80px;
+          }
+        }
+        
+  
+        
+       
+      
+            
+        .btn-twitter {background-color:#4099FF;color:#fff;}
+        .btn-facebook {background-color:#3B5998;color:#fff;}
+        .btn-google-plus {background-color:#d34836;color:#fff;}
+        
+        .btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
+        .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
+        .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+        
+        
+        
+        
+        
+        
+        
+        
+        *{
+            padding:0;
+            margin:0;
+        }
+        
+        body {
+        
+            background:radial-gradient(#646464,#efefef);
+          } 
+         
+        .navbar.affix {
+            position:fixed;
+            top:0;
+            width:100%;
+          }
+        
+        
+        .addup
+        {
+            
+            float: right;
+            border:2px solid black;
+            border-radius: 5px;
+            background-color:beige;
+            margin-top: 5%;
+            margin-left: 35%;
+            margin-right: 35%;
+            margin-bottom: 10%;
+            padding: 38px;
+            background-clip: padding-box;
+        }
+        .addup h2
+        {
+            text-align: center;
+        }
+        .addup p
+        {
+            
+            padding-top:6px;
+            padding-bottom: 1pt;
+            
+        }
+        .addup-cont{
+        
+          padding-left: 20px;
+        
+        
+        }
+        .addup input
+        {   padding-top: 3px;
+            height: 1.5em;
+            width: 84% ;
+            background-color: rgb(218, 210, 210);
+            border-radius: 2px;
+            border-style:unset;
+        }
+         #addup-button
+        {
+             width: 86% ;
+             height: 1.8em;
+             color:white;
+             background:linear-gradient( rgb(57, 57, 216),blue);
+             border:1px solid rgb(57, 57, 216);
+             border-radius: 2px;
+             padding-bottom: 8%;
+        }
+        #addup-button:hover
+        {
+            color:white;
+             background:linear-gradient( rgb(50, 50, 133),rgb(7, 7, 197));
+        }
+        #input{
+            padding-top: 3px;
+            height: 1.8em;
+            width: 84% ;
+            border-radius: 2px;
+            border-style:unset;
+        }
+        #input1{
+          padding-top: 3px;
+          height: 1.8em;
+          width: 84% ;
+          border-radius: 2px;
+          border-style:unset;
+        }
+        #preview{
+          padding-left: 40px;;
+          width:70%;
+          height:60px;
+          margin-bottom:7px;
+        }
+        #preview1{
+          padding-left:40px;
+          width:70%;
+          height:60px;
+          margin-bottom:7px;
+        }
+        </style>
+	</head>
+	<body>
+
+
+
+
+
+  
+    
+   
+      
+      
+          
+          
+            <div class="row2">    
+                <br>
+                <form action="/author/updateall/<%=author._id%>/submit" method="POST" class="addup" onsubmit="return validatex()">
+        
+                  <h2>Update Data</h2>
+                  
+                  <br>
+                  <div class="addup-cont">
+                    <label >Book Name</label>
+                    <br>
+                    <input type="text" name="bookname" placeholder="<%=author.bookname%>" required >
+                </div>
+                <br>
+                <div class="addup-cont">
+                  <label >Author Name</label>
+                  <br>
+                  <input type="text" name="authorname" placeholder="<%=author.authorname%>" required>
+              </div>
+              <br>
+              <div class="addup-cont">
+                <label >Date of Publication</label>
+                <br>
+                <input type="date" name="pubdate" placeholder="<%=author.pubdate%>" id="date"  required>
+                <br>
+                <br>
+              </div>
+            
+                  <div class="addup-cont">
+                    <label >Choose main Genre:</label>
+                    <select name="genre" id="genre" onchange="validate()" >
+                             <option value="invalid" >Select</option>
+                         <%for(i=0;i<genre.length;i++){%>
+                            <option  value="<%=genre[i]%>" ><%=genre[i]%></option>
+                            <%}%>
+                     </select><br>
+                     <label id="genreerror"></label>
+                     <br>
+                  </div>
+                  <div class="addup-cont">
+                    <label >Add Book image:</label>
+                    <br>
+                  <input type="file" name="bookimg" id="input"  onchange="showfiles()" accept="image/*">
+                  <br> 
+                  <img id="preview" hidden src=""  alt="">
+                  <br>
+                  <label >Add Author image:</label>
+                  <br>
+                  <input type="file" name="authimg" id="input1" onchange="showfiles1()" accept="image/*"> 
+                  <br>
+                  <img id="preview1" hidden src=""  alt="">
+                  <br>
+                  </div>
+                  
+                  <div>
+                        <input  id="addup-button" style="margin-left: 3.8%;" type="submit" value="Update">
+                      <br>
+                      <a href="/books"  id="addup-button" class="btn btn-primary pull-right btnNext" style=" margin-top: 2%; margin-right: 10%;"><i class="icon-book"></i>&nbsp; To Library</a>
+                  </div>
+                  <br>
+                  
+             
+              </form>  
+              </div>
+              <hr>
+              
+          
+          
+        
+          
+                                                                                     
+	                                                
+                                                      
+   	
+                                                
+                                                                                
+
+
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+
+<script>
+    let genre=document.getElementById("genre");
+let genreerror=document.getElementById("genreerror");
+var check=0;
+var check1=0;
+
+function showfiles()
+{
+$('#preview').removeAttr('hidden');
+let inputField=document.getElementById("input");
+let file=inputField.files;
+let fileReader=new FileReader();
+
+fileReader.onload=(event)=>{
+    let ImageURL=fileReader.result;
+    $("#preview").attr("src",`${ImageURL}`);
+};
+
+fileReader.readAsDataURL(file[0]);
+ check=1;
+
+};
+function showfiles1(){
+    $('#preview1').removeAttr('hidden');
+    let inputField=document.getElementById("input1");
+    let fileReader=new FileReader();
+    let file=inputField.files;
+    fileReader.onload=(event)=>{
+        let ImageURL=fileReader.result;
+        $("#preview1").attr("src",`${ImageURL}`);
+    };
+    fileReader.readAsDataURL(file[0]);
+    check1=1;
+  
+};
+
+
+function validate()
+{
+    if(genre.value=="invalid") 
+    {
+    genreerror.innerHTML="Please Choose a genre";
+    genreerror.style.color="red";
+    genre.style.border="2px solid rgb(218, 210, 210)"; 
+    genre.style.borderRadius="3px";
+    alert("Please Choose a Genre");
+    return false;
+    
+    }
+
+    else
+    {
+    genreerror.innerHTML="";
+    return true;
+    }
+    
+    
+  
+};
+
+function validatex()
+{
+if(validate() && check=="1" && check1=="1")
+{
+alert("Successfully added data!");
+return true;
+
+}
+else
+{
+
+return false;
+}
+};
+
+    
+
+
+</script>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<!-- <script src="/src/update.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+	</body>
+</html>
